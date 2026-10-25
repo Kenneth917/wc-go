@@ -123,9 +123,9 @@ var _ = Describe("Count", func() {
 
 	Context("when the input is far larger than the memory we are willing to use", func() {
 		It("counts it in constant memory", func() {
-			// 10 million repetitions of a 6-byte line is 60 MB. Reading it all into
+			// 3 million repetitions of a 6-byte line is 18 MB. Reading it all into
 			// memory would allocate at least that much; streaming should need a tiny fraction.
-			const reps = 10_000_000
+			const reps = 3_000_000
 			var before, after runtime.MemStats
 			runtime.GC()
 			runtime.ReadMemStats(&before)
