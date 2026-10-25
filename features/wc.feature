@@ -32,6 +32,17 @@ Feature: Count lines, words and bytes
       44 test.txt
       """
 
+  Scenario: Count characters with -m
+    Given a file "accents.txt" with content:
+      """
+      héllo wörld
+      """
+    When I run "wc -m accents.txt"
+    Then the output should be:
+      """
+      12 accents.txt
+      """
+
   Scenario: Default output is lines, words, bytes
     When I run "wc test.txt"
     Then the output should be:
